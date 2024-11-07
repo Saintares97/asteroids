@@ -12,12 +12,15 @@ def main():
     clock = pygame.time.Clock()
     dt = 0
     p = Player(x = SCREEN_WIDTH / 2, y = SCREEN_HEIGHT / 2)
+    
     while True:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 return
+            
+        p.update(dt)    
+        
         screen.fill((0, 0, 0))
-        p.update(dt)
         p.draw(screen)
         pygame.display.flip()
         dt = clock.tick(60) / 1000
