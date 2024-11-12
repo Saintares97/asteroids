@@ -48,6 +48,12 @@ def main():
                 print("Game over!")
                 sys.exit()
 
+        # check for collision between bullets and asteroids, kills both objects if true
+        for asteroid in asteroids:
+            for shot in shots:
+                if shot.is_colliding(asteroid):
+                    shot.kill()
+                    asteroid.kill()
  
         # fill the screen black
         screen.fill((0, 0, 0))
